@@ -54,9 +54,10 @@ class MenuActivity : AppCompatActivity() {
                     if (ds.hasChild("jugadores/${jugador.uid}")) instanciarJugadorExistente()
                     else conseguirCartas()
                 }
+                ref.removeEventListener(this)
             }
         }
-        ref.addListenerForSingleValueEvent(postListener)
+        ref.addValueEventListener(postListener)
     }
 
     private fun iniciarListenerDeFinDeJuego() {
